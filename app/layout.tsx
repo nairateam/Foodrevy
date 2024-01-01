@@ -4,6 +4,7 @@ import './globals.css'
 import { UserContext } from './auth/UserContext'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ModalProvider } from './context/ModalContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserContext>
-          {children}
+          <ModalProvider>
+            {children}
+          </ModalProvider>
           <ToastContainer />
         </UserContext>
       </body>
